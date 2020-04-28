@@ -1,4 +1,8 @@
-FROM buildpack-deps:stretch
+FROM buildpack-deps:stable
+
+ENV NODE_VERSION 12.16.3
+ENV YARN_VERSION 1.22.4
+ENV PYTHON_VERSION 3.8.2
 
 #install node
 RUN groupadd --gid 1000 node \
@@ -22,7 +26,7 @@ RUN set -ex \
     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
   done
 
-ENV NODE_VERSION 10.12.0
+
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -42,7 +46,7 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-ENV YARN_VERSION 1.10.1
+
 
 RUN set -ex \
   && for key in \
@@ -77,7 +81,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY 0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
-ENV PYTHON_VERSION 3.7.1
+
 
 RUN set -ex \
 	\
