@@ -1,1 +1,1 @@
-docker build -t codingpeon/node-python:node10.12.0-python3.7.1 -t codingpeon/node-python:latest .
+docker build -t codingpeon/node-python:node10.16.3-python3.8.2 -t codingpeon/node-python:latest .
