@@ -66,8 +66,6 @@ RUN set -ex \
   # smoke test
   && yarn --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
-
 #install python
 
 # ensure local python is preferred over distribution python
